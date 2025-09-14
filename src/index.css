@@ -2,41 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Skeuomorphic Mental Health AI Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Warm, calming base colors */
+    --background: 32 15% 94%;
+    --foreground: 25 20% 15%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Card surfaces with paper texture feel */
+    --card: 35 25% 97%;
+    --card-foreground: 25 20% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Leather-like surfaces */
+    --leather: 25 35% 25%;
+    --leather-light: 30 25% 35%;
+    --leather-dark: 20 40% 18%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Healing primary - warm therapeutic blue */
+    --primary: 200 45% 35%;
+    --primary-foreground: 35 25% 97%;
+    --primary-glow: 200 60% 55%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Calming secondary - sage green */
+    --secondary: 120 20% 45%;
+    --secondary-foreground: 35 25% 97%;
+    --secondary-light: 120 25% 65%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Warm muted tones */
+    --muted: 30 15% 88%;
+    --muted-foreground: 25 15% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Soft accent - warm cream */
+    --accent: 45 40% 90%;
+    --accent-foreground: 25 20% 15%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Gentle warning colors */
+    --warning: 35 85% 65%;
+    --warning-foreground: 25 20% 15%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Crisis/destructive - muted red */
+    --destructive: 5 55% 45%;
+    --destructive-foreground: 35 25% 97%;
 
-    --radius: 0.5rem;
+    /* Borders and inputs with depth */
+    --border: 30 20% 82%;
+    --input: 35 25% 92%;
+    --ring: 200 45% 35%;
+
+    /* Textures and effects */
+    --shadow-soft: 0 4px 12px hsl(25 25% 15% / 0.08);
+    --shadow-deep: 0 8px 32px hsl(25 25% 15% / 0.12);
+    --shadow-inset: inset 0 2px 4px hsl(25 25% 15% / 0.06);
+    --shadow-raised: 0 2px 8px hsl(25 25% 15% / 0.1), 0 1px 2px hsl(25 25% 15% / 0.08);
+
+    /* Gradients */
+    --gradient-warm: linear-gradient(135deg, hsl(35 25% 97%), hsl(45 30% 94%));
+    --gradient-leather: linear-gradient(145deg, hsl(25 35% 25%), hsl(20 40% 18%));
+    --gradient-healing: linear-gradient(135deg, hsl(200 45% 35%), hsl(200 60% 55%));
+    --gradient-sage: linear-gradient(135deg, hsl(120 20% 45%), hsl(120 25% 65%));
+
+    /* Animation timings */
+    --transition-gentle: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
