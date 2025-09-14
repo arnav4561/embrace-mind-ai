@@ -32,9 +32,9 @@ const Navigation: React.FC<NavigationProps> = ({ activeTab, onTabChange }) => {
   ];
 
   return (
-    <Card className="p-4 bg-gradient-leather shadow-deep border-leather-light">
+    <Card className="p-4 bg-card/80 shadow-raised border-border/50">
       <div className="space-y-2">
-        <h2 className="text-lg font-bold text-primary-foreground mb-4 text-center">
+        <h2 className="text-lg font-bold text-foreground mb-4 text-center">
           Mental Wellness Hub
         </h2>
         {navItems.map((item) => {
@@ -46,8 +46,8 @@ const Navigation: React.FC<NavigationProps> = ({ activeTab, onTabChange }) => {
               size="default"
               className={`w-full justify-start gap-3 text-left ${
                 activeTab === item.id 
-                  ? 'bg-opacity-90 shadow-inset' 
-                  : 'text-primary-foreground hover:bg-leather-light'
+                  ? 'bg-opacity-90 shadow-soft' 
+                  : 'text-foreground hover:bg-muted'
               }`}
               onClick={() => onTabChange(item.id)}
             >

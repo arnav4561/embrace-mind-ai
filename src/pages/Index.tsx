@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Navigation from '@/components/Navigation';
 import ChatInterface from '@/components/ChatInterface';
 import VirtualAvatar from '@/components/VirtualAvatar';
+import LandingPage from '@/components/LandingPage';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button-enhanced';
 import { Input } from '@/components/ui/input';
@@ -24,18 +25,21 @@ import {
 } from 'lucide-react';
 
 const Index = () => {
-  const [activeTab, setActiveTab] = useState('chat');
+  const [activeTab, setActiveTab] = useState('landing');
   const [userMood, setUserMood] = useState<'calm' | 'anxious' | 'sad' | 'happy' | 'stressed' | 'hopeful'>('calm');
 
   const renderContent = () => {
     switch (activeTab) {
+      case 'landing':
+        return <LandingPage onStartChat={() => setActiveTab('chat')} onNavigate={setActiveTab} />;
+        
       case 'chat':
         return <ChatInterface />;
         
       case 'profile':
         return (
           <div className="space-y-6">
-            <Card className="p-6 bg-gradient-warm shadow-raised border-muted">
+            <Card className="p-6 bg-gradient-serene shadow-raised border-border/50">
               <h2 className="text-2xl font-bold text-foreground mb-4">Your Wellness Profile</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <VirtualAvatar mood={userMood} name="Your Digital Self" />
@@ -83,7 +87,7 @@ const Index = () => {
       case 'journal':
         return (
           <div className="space-y-6">
-            <Card className="p-6 bg-gradient-warm shadow-raised border-muted">
+            <Card className="p-6 bg-gradient-serene shadow-raised border-border/50">
               <div className="flex items-center gap-2 mb-4">
                 <BookOpen className="w-6 h-6 text-primary" />
                 <h2 className="text-2xl font-bold text-foreground">Reflective Journal</h2>
@@ -129,12 +133,12 @@ const Index = () => {
               </div>
             </Card>
             
-            <Card className="p-6 bg-card shadow-inset border-border">
+            <Card className="p-6 bg-card/80 shadow-soft border-border/50">
               <h3 className="text-lg font-semibold text-foreground mb-3">Recent Entries</h3>
               <ScrollArea className="h-64">
                 <div className="space-y-3">
                   {[1, 2, 3].map((entry) => (
-                    <div key={entry} className="p-3 bg-gradient-warm rounded-lg shadow-soft border border-muted">
+                    <div key={entry} className="p-3 bg-gradient-serene rounded-lg shadow-soft border border-border/50">
                       <div className="flex justify-between items-start">
                         <p className="text-sm text-foreground">Entry from March {entry + 10}</p>
                         <span className="text-xs text-muted-foreground">2 days ago</span>
@@ -153,7 +157,7 @@ const Index = () => {
       case 'goals':
         return (
           <div className="space-y-6">
-            <Card className="p-6 bg-gradient-warm shadow-raised border-muted">
+            <Card className="p-6 bg-gradient-serene shadow-raised border-border/50">
               <div className="flex items-center gap-2 mb-4">
                 <Target className="w-6 h-6 text-primary" />
                 <h2 className="text-2xl font-bold text-foreground">Wellness Goals</h2>
@@ -193,7 +197,7 @@ const Index = () => {
       case 'mood':
         return (
           <div className="space-y-6">
-            <Card className="p-6 bg-gradient-warm shadow-raised border-muted">
+            <Card className="p-6 bg-gradient-serene shadow-raised border-border/50">
               <div className="flex items-center gap-2 mb-4">
                 <Activity className="w-6 h-6 text-primary" />
                 <h2 className="text-2xl font-bold text-foreground">Mood Tracker</h2>
@@ -206,7 +210,7 @@ const Index = () => {
                   { mood: 'Okay', color: 'bg-warning', count: 6 },
                   { mood: 'Difficult', color: 'bg-destructive', count: 2 }
                 ].map((item, index) => (
-                  <div key={index} className="text-center p-4 bg-card rounded-lg shadow-soft border border-muted">
+                  <div key={index} className="text-center p-4 bg-card/80 rounded-lg shadow-soft border border-border/50">
                     <div className={`w-12 h-12 ${item.color} rounded-full mx-auto mb-2 shadow-soft`}></div>
                     <p className="font-medium text-foreground">{item.mood}</p>
                     <p className="text-sm text-muted-foreground">{item.count} days</p>
@@ -225,7 +229,7 @@ const Index = () => {
       case 'cbt':
         return (
           <div className="space-y-6">
-            <Card className="p-6 bg-gradient-warm shadow-raised border-muted">
+            <Card className="p-6 bg-gradient-serene shadow-raised border-border/50">
               <div className="flex items-center gap-2 mb-4">
                 <Brain className="w-6 h-6 text-primary" />
                 <h2 className="text-2xl font-bold text-foreground">CBT Tools</h2>
@@ -256,28 +260,28 @@ const Index = () => {
       case 'crisis':
         return (
           <div className="space-y-6">
-            <Card className="p-6 bg-destructive/10 shadow-raised border-destructive">
+            <Card className="p-6 bg-gradient-serene shadow-raised border-border/50">
               <div className="flex items-center gap-2 mb-4">
-                <Shield className="w-6 h-6 text-destructive" />
-                <h2 className="text-2xl font-bold text-destructive">Crisis Support</h2>
+                <Shield className="w-6 h-6 text-primary" />
+                <h2 className="text-2xl font-bold text-foreground">Support Resources</h2>
               </div>
               
               <div className="space-y-4">
-                <p className="text-foreground">If you're having thoughts of self-harm or suicide, please reach out for help immediately:</p>
+                <p className="text-muted-foreground">Professional support is available 24/7. You're not alone in this journey.</p>
                 
                 <div className="space-y-3">
-                  <Button variant="crisis" size="lg" className="w-full justify-start">
+                  <Button variant="outline" size="lg" className="w-full justify-start text-foreground border-border/50">
                     📞 National Suicide Prevention Lifeline: 988
                   </Button>
-                  <Button variant="crisis" size="lg" className="w-full justify-start">
+                  <Button variant="outline" size="lg" className="w-full justify-start text-foreground border-border/50">
                     💬 Crisis Text Line: Text HOME to 741741
                   </Button>
-                  <Button variant="crisis" size="lg" className="w-full justify-start">
+                  <Button variant="outline" size="lg" className="w-full justify-start text-foreground border-border/50">
                     🌐 Online Chat Support Available 24/7
                   </Button>
                 </div>
                 
-                <Card className="p-4 bg-gradient-warm shadow-soft border-muted">
+                <Card className="p-4 bg-gradient-healing shadow-soft border-border/50">
                   <h3 className="font-medium text-foreground mb-2">Immediate Grounding Exercise</h3>
                   <p className="text-sm text-muted-foreground">
                     Try the 5-4-3-2-1 technique: Name 5 things you can see, 4 things you can touch, 
@@ -291,13 +295,21 @@ const Index = () => {
 
       default:
         return (
-          <Card className="p-6 bg-gradient-warm shadow-raised border-muted">
+          <Card className="p-6 bg-gradient-serene shadow-raised border-border/50">
             <h2 className="text-2xl font-bold text-foreground">Coming Soon</h2>
             <p className="text-muted-foreground">This feature is under development.</p>
           </Card>
         );
     }
   };
+
+  if (activeTab === 'landing') {
+    return (
+      <div className="min-h-screen bg-background">
+        {renderContent()}
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background">

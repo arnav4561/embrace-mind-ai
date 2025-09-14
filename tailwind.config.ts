@@ -70,8 +70,8 @@ export default {
         },
       },
       backgroundImage: {
-        'gradient-warm': 'var(--gradient-warm)',
-        'gradient-leather': 'var(--gradient-leather)',
+        'gradient-calm': 'var(--gradient-calm)',
+        'gradient-serene': 'var(--gradient-serene)',
         'gradient-healing': 'var(--gradient-healing)',
         'gradient-sage': 'var(--gradient-sage)',
       },
